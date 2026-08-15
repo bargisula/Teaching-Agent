@@ -1,0 +1,77 @@
+{
+  "id": "edu-poster",
+  "name": "教育海報風（第一個具名風格，由 Jarvis 定義）",
+  "version": "1.0",
+  "palette": {
+    "background": "E4F3F0",
+    "dominant": "1F7A6D",
+    "dominantSoft": "8FC7BD",
+    "accent": "E4572E",
+    "accentBudgetPerDeck": 2,
+    "ink": "23261F",
+    "muted": "5B6360",
+    "rules": [
+      "全簡報只用這組色，不得引入新色",
+      "accent 整份簡報最多出現在 accentBudgetPerDeck 個位置（例如結論頁關鍵句、警告頁），每頁都用就不是 accent",
+      "禁止漸層、禁止彩虹配色"
+    ]
+  },
+  "typography": {
+    "fontZh": "微軟正黑體",
+    "fontLatin": "Segoe UI",
+    "roles": {
+      "coverTitle":   { "size": 40, "bold": true,  "color": "FFFFFF" },
+      "sectionTitle": { "size": 44, "bold": true,  "color": "FFFFFF" },
+      "pageTitle":    { "size": 30, "bold": true,  "color": "ink" },
+      "body":         { "size": 15, "bold": false, "color": "muted" },
+      "emphasisKeyword": { "bold": true, "color": "dominant" },
+      "caption":      { "size": 11, "bold": false, "color": "muted" }
+    },
+    "rules": [
+      "層次靠字重不靠字級：標題與關鍵字才可粗體，內文一律 regular",
+      "內文顏色用 muted 灰，不用純黑",
+      "一頁最多兩種字重"
+    ]
+  },
+  "motifs": {
+    "photoMatFrame": {
+      "desc": "照片一律墊白色圓角卡（pad 0.16in、radius 0.08、柔和外陰影），照片本身加 dominant 色 0.75pt 細框",
+      "appliesTo": "每一張放照片/截圖的頁面，不得有頁面漏掉"
+    },
+    "numberBadge": {
+      "desc": "步驟/序號一律用 dominant 色圓形徽章+白色粗體數字，取代裸數字與圓點",
+      "appliesTo": "所有序列與分類標記"
+    },
+    "hairlineDivider": {
+      "desc": "分區只用 1pt 細線（dominant 或淺灰），禁止填色側欄、色帶、色塊面板",
+      "appliesTo": "所有文字區/圖片區的分隔"
+    }
+  },
+  "layout": {
+    "grid": "雙欄骨架",
+    "mirrorAlternate": "同版型左右鏡像交替：這頁文左圖右，下頁圖左文右",
+    "verticalCenter": "內容不滿欄時垂直置中（titleBottom + (可用高 - 內容高)/2），禁止上緣對齊留下半頁空白",
+    "coverException": "封面允許滿版照片出血，是刻意的兩層系統（封面 vs 內頁），內頁一律用 background 淡色底"
+  },
+  "pageTemplates": {
+    "cover":         { "background": "assets/test/test-warm-bokeh.png", "fullBleed": true, "titleRole": "coverTitle", "note": "文字壓圖處墊深色半透明底條" },
+    "section":       { "background": "assets/test/test-teal-geo.png",  "fullBleed": true, "titleRole": "sectionTitle" },
+    "content-photo": { "background": "E4F3F0", "layout": "雙欄鏡像", "photo": "photoMatFrame" },
+    "content-list":  { "background": "E4F3F0", "badges": "numberBadge", "verticalCenter": true },
+    "conclusion":    { "background": "E4F3F0", "note": "全簡報的 accent 預算通常花在這頁的關鍵句" }
+  },
+  "renderNotes": [
+    "pptxgenjs 陷阱：shadow/line/fill 選項物件會被就地改值（轉 EMU），跨 addImage/addShape 共用同一個 const 物件會產生 PowerPoint 拒開的壞檔。每次呼叫都要用新的物件字面值或工廠函式",
+    "PNG 只負責背景與圖表；所有可編輯文字保留給 PPT 原生文字框（延續 T-0009 決策）",
+    "全域風格改動後每一頁都要重新 render 檢查"
+  ],
+  "doneChecklist": [
+    "每張內頁同一個淡色底，只有封面例外",
+    "accent 全簡報 ≤2 處",
+    "沒有任何一頁內文是粗體",
+    "所有照片同一種 mat frame、所有序號同一種徽章",
+    "沒有任何填色色帶/色塊，分隔全是細線",
+    "版面左右鏡像交替，不是每頁同構",
+    "沒有欄位下方大片空白"
+  ]
+}

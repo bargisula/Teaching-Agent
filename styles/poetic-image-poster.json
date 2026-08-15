@@ -1,0 +1,78 @@
+{
+  "id": "poetic-image-poster",
+  "name": "影像詩意海報風",
+  "version": "1.0",
+  "palette": {
+    "background": "E9F0EF",
+    "dominant": "245A63",
+    "dominantSoft": "B8CDD0",
+    "accent": "E28A62",
+    "accentBudgetPerDeck": 3,
+    "ink": "1F2D31",
+    "muted": "607277",
+    "rules": [
+      "色彩可依照片主色調整，但每頁只保留一個主要強調色",
+      "禁止堆疊多種裝飾色，照片負責主要氣氛"
+    ]
+  },
+  "typography": {
+    "fontZh": "Microsoft JhengHei",
+    "fontLatin": "Segoe UI",
+    "roles": {
+      "coverTitle": { "size": 40, "bold": true, "color": "FFFFFF" },
+      "sectionTitle": { "size": 42, "bold": true, "color": "FFFFFF" },
+      "pageTitle": { "size": 30, "bold": true, "color": "ink" },
+      "body": { "size": 15, "bold": false, "color": "muted" },
+      "emphasisKeyword": { "bold": true, "color": "dominant" },
+      "caption": { "size": 10, "bold": false, "color": "muted" }
+    },
+    "rules": [
+      "主標題以短句或垂直分行呈現",
+      "一頁最多兩種字重，避免長段落"
+    ]
+  },
+  "motifs": {
+    "fullBleedPhoto": {
+      "desc": "照片或情境圖作為大比例背景，文字與影像融合",
+      "appliesTo": "封面、章節頁與理念頁"
+    },
+    "lineFrame": {
+      "desc": "用細線框住核心標題區，允許局部穿出或裁切",
+      "appliesTo": "主視覺標題區"
+    },
+    "microLabel": {
+      "desc": "左上或右下放小型分類、編號、日期或署名",
+      "appliesTo": "所有海報式頁面"
+    },
+    "geometricMarks": {
+      "desc": "少量圓點、斜線與符號作為照片上的導視元素",
+      "appliesTo": "不可搶過主標題"
+    }
+  },
+  "layout": {
+    "grid": "滿版影像＋中央或偏心文字軸",
+    "titlePlacement": "center-or-left",
+    "imageDominance": "至少佔頁面 55%",
+    "whitespace": "文字周圍保留大面積呼吸空間",
+    "coverException": "封面允許滿版照片出血，內頁可用照片局部裁切"
+  },
+  "pageTemplates": {
+    "cover": { "background": "assets/test/test-warm-bokeh.png", "fullBleed": true, "titleRole": "coverTitle", "note": "標題可置於中央細線框內，必要時加半透明遮罩" },
+    "section": { "background": "assets/test/test-warm-bokeh.png", "fullBleed": true, "titleRole": "sectionTitle" },
+    "content-photo": { "background": "E9F0EF", "layout": "大圖＋短句", "photo": "fullBleedPhoto" },
+    "content-list": { "background": "E9F0EF", "layout": "照片側邊裁切＋短條列", "decor": "lineFrame" },
+    "conclusion": { "background": "E9F0EF", "layout": "大圖＋單一行動句", "note": "避免資訊卡堆疊" }
+  },
+  "renderNotes": [
+    "PNG 負責照片、紋理與幾何裝飾；標題、核心訊息與小標保留為 PPT 原生文字",
+    "照片上的文字區需加遮罩或對比底，避免投影時失讀",
+    "每次呼叫 addImage/addShape 都建立新的選項物件，避免物件被轉 EMU 後重用"
+  ],
+  "doneChecklist": [
+    "每頁有一個明確主視覺",
+    "主標題不超過兩行或四個視覺區塊",
+    "裝飾線條與圓點不搶過文字",
+    "照片與文字有足夠對比",
+    "沒有把頁面塞成資訊儀表板"
+  ]
+}

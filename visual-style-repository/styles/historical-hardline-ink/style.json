@@ -1,0 +1,20 @@
+{
+  "id": "historical-hardline-ink",
+  "name": "寫實硬派歷史線稿",
+  "best_for": [
+    "歷史人物",
+    "戰爭",
+    "制度",
+    "事件分析"
+  ],
+  "medium": "monochrome ink line art",
+  "linework": "強輪廓、交叉排線、菱角臉",
+  "color": "純黑白，不著色",
+  "composition": "人物、地圖、時間軸、雙人物構圖與細節特寫",
+  "reference_count": 2,
+  "avoid": [
+    "柔和Q版",
+    "彩色塗裝",
+    "特定漫畫家模仿"
+  ]
+}

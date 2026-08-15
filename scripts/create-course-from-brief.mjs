@@ -1,0 +1,9 @@
+﻿import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd(), args=process.argv.slice(2);const i=args.indexOf('--brief-file');if(i<0)throw new Error('需要 --brief-file <json>');
+const brief=JSON.parse(fs.readFileSync(path.resolve(args[i+1]),'utf8').replace(/^\uFEFF/,''));if(!/^[a-z0-9][a-z0-9-]*$/.test(brief.id))throw new Error('brief.id 必須是 kebab-case');
+for(const k of ['title','audience','durationMinutes','slideCount','outcome'])if(!brief[k])throw new Error('缺少 brief.'+k);
+const courseRoot=path.join(root,'library','courses',brief.id), versionRoot=path.join(courseRoot,'versions','v0.1');for(const d of ['source','intake','acceptance',path.join(versionRoot,'outline'),path.join(versionRoot,'content'),path.join(versionRoot,'visual-design'),path.join(versionRoot,'review')])fs.mkdirSync(path.join(courseRoot,d),{recursive:true});
+const today=new Date().toISOString().slice(0,10);const manifest={id:brief.id,title:brief.title,description:brief.description||brief.outcome,tags:brief.tags||[],audience:brief.audience,durationMinutes:Number(brief.durationMinutes),status:'draft',latestVersion:'v0.1',updatedAt:today,versions:[{id:'v0.1',status:'draft',createdAt:today}]};fs.writeFileSync(path.join(courseRoot,'manifest.json'),JSON.stringify(manifest,null,2)+'\n','utf8');
+const req=`# 教材需求\n\n- 主題：${brief.title}\n- 對象：${brief.audience}\n- 時間：${brief.durationMinutes} 分鐘\n- 張數：${brief.slideCount} 張（最多 12 張，包含封面）\n- 學習成果：${brief.outcome}\n- 需求狀態：待使用者確認 requirements\n`;
+fs.writeFileSync(path.join(courseRoot,'source','course-requirements.md'),req,'utf8');fs.writeFileSync(path.join(courseRoot,'intake','requirements-status.json'),JSON.stringify({requirements:'pending',content:'pending',visual:'pending'},null,2)+'\n','utf8');console.log(JSON.stringify({courseId:brief.id,version:'v0.1',status:'draft',next:'等待 requirements 確認；不會自動執行 run-all'},null,2));

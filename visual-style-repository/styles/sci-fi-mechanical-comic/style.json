@@ -1,0 +1,20 @@
+{
+  "id": "sci-fi-mechanical-comic",
+  "name": "科幻機械漫畫",
+  "best_for": [
+    "AI",
+    "科技",
+    "工程",
+    "系統架構"
+  ],
+  "medium": "technical science-fiction comic",
+  "linework": "精密技術線稿、幾何機械結構",
+  "color": "午夜藍、鋼銀、冷藍、螢光青",
+  "composition": "控制室、機械部件、資料流與 HUD",
+  "avoid": [
+    "城市街巷",
+    "江湖黑幫",
+    "暖色霓虹",
+    "特定作品模仿"
+  ]
+}

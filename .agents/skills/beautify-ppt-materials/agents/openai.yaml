@@ -1,0 +1,6 @@
+interface:
+  display_name: "教材與 PPT 美編"
+  short_description: "將教材、圖片與文件美編成一致風格的繁體中文投影片"
+  default_prompt: "Use $beautify-ppt-materials to turn my attached materials and images into a consistent Traditional Chinese PPT after separate text and style confirmations."
+policy:
+  allow_implicit_invocation: true

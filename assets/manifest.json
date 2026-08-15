@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "path": "assets/test/test-warm-bokeh.png",
+      "role": "cover-background",
+      "source": "本機生成測試圖",
+      "license": "本機生成，無外部授權限制",
+      "dimensions": "1920x1080"
+    },
+    {
+      "path": "assets/test/test-teal-geo.png",
+      "role": "section-background|content-photo-test",
+      "source": "本機生成測試圖",
+      "license": "本機生成，無外部授權限制",
+      "dimensions": "1920x1080"
+    }
+  ]
+}

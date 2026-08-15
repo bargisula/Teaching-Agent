@@ -1,0 +1,8 @@
+{
+  "id": "clean-infographic",
+  "label": "清晰資訊圖表",
+  "version": 1,
+  "bestFor": ["流程", "制度", "軟體操作", "企業內訓"],
+  "promptRules": ["Use structured editorial infographics, clear hierarchy, restrained vector-like iconography, and generous negative space.", "Use one dominant diagram or visual metaphor per slide; keep decoration subordinate to the teaching message.", "Use navy, off-white, and one warm accent; keep high projection contrast."],
+  "avoid": ["photo-real people", "dense dashboards", "small unreadable labels", "ornamental gradients"]
+}

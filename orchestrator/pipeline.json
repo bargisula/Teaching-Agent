@@ -1,0 +1,17 @@
+{
+  "version": 6,
+  "maxRetries": 3,
+  "maxSlidesIncludingCover": 12,
+  "style": "auto",
+  "stages": [
+    {"id":"goal","name":"需求拆解","agent":"Curriculum Agent","execution":"agent","specDoc":"agents/curriculum-agent.md","input":"source/course-requirements.md","output":"source/goal.md","next":"curriculum","requires_user_confirmation":false,"confirmationKey":null,"on_fail":null},
+    {"id":"curriculum","name":"教材規劃","agent":"Curriculum Agent","execution":"agent","specDoc":"agents/curriculum-agent.md","input":"source/goal.md","output":"versions/{version}/outline/outline.md","next":"content","requires_user_confirmation":true,"confirmationKey":"requirements","on_fail":"goal"},
+    {"id":"content","name":"逐頁內容生成","agent":"Curriculum Agent","execution":"agent","specDoc":"agents/curriculum-agent.md","input":"versions/{version}/outline/outline.md","output":"versions/{version}/content/slides.md","next":"visual","requires_user_confirmation":true,"confirmationKey":"content","on_fail":"curriculum"},
+    {"id":"visual","name":"視覺規格與圖像提示詞","agent":"Visual Agent","execution":"agent","specDoc":"agents/visual-agent.md","input":"versions/{version}/content/slides.md","output":"versions/{version}/visual-design/visual-spec.json","next":"render","requires_user_confirmation":true,"confirmationKey":"visual","on_fail":"content"},
+    {"id":"render","name":"圖像生成（Codex imagegen）","agent":"Visual Agent","execution":"agent","specDoc":".agents/skills/teaching-agent-imagegen/SKILL.md","input":"versions/{version}/visual-design/visual-spec.json","output":"versions/{version}/imagegen-status.json","next":"assemble","requires_user_confirmation":false,"confirmationKey":null,"on_fail":"visual"},
+    {"id":"assemble","name":"PPTX 圖像貼入","agent":"Visual Agent","execution":"script","input":"versions/{version}/imagegen-status.json","output":"versions/{version}/deck/deck.pptx","next":"review","requires_user_confirmation":false,"confirmationKey":null,"on_fail":"render"},
+    {"id":"review","name":"需求對照與品質檢查","agent":"Review Agent","execution":"agent","specDoc":"agents/review-agent.md","input":"versions/{version}/deck/deck.pptx","output":"versions/{version}/review/report.md","next":null,"requires_user_confirmation":false,"confirmationKey":null,"on_fail":"content"},
+    {"id":"media-script","name":"旁白腳本生成","agent":"Media Production Agent","execution":"script","specDoc":"agents/media-production-agent.md","input":"versions/{version}/content/slides.md","output":"versions/{version}/media/narration-script.md","next":"media-render","requires_user_confirmation":false,"confirmationKey":null,"on_fail":"review"},
+    {"id":"media-render","name":"語音、字幕與影片合成","agent":"Media Production Agent","execution":"script","specDoc":"agents/media-production-agent.md","input":"versions/{version}/media/dialogue.json","output":"versions/{version}/media/video/final-video.mp4","next":null,"requires_user_confirmation":true,"confirmationKey":"mediaScript","on_fail":"media-script"}
+  ]
+}

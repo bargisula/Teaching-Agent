@@ -1,0 +1,78 @@
+{
+  "id": "modular-info-cards",
+  "name": "模組化資訊卡風",
+  "version": "1.0",
+  "palette": {
+    "background": "F3F7F5",
+    "dominant": "168A8A",
+    "dominantSoft": "BFE2DE",
+    "accent": "F4A340",
+    "accentBudgetPerDeck": 4,
+    "ink": "203638",
+    "muted": "647477",
+    "rules": [
+      "卡片可依教材主題替換色彩，但同一頁最多三種功能色",
+      "色彩必須服務於模組分組，不可只作裝飾"
+    ]
+  },
+  "typography": {
+    "fontZh": "Microsoft JhengHei",
+    "fontLatin": "Segoe UI",
+    "roles": {
+      "coverTitle": { "size": 38, "bold": true, "color": "ink" },
+      "sectionTitle": { "size": 40, "bold": true, "color": "ink" },
+      "pageTitle": { "size": 28, "bold": true, "color": "ink" },
+      "body": { "size": 14, "bold": false, "color": "muted" },
+      "emphasisKeyword": { "bold": true, "color": "dominant" },
+      "caption": { "size": 10, "bold": false, "color": "muted" }
+    },
+    "rules": [
+      "數字、標籤與標題建立清楚層級",
+      "卡片內文使用短句，每張卡只承擔一個資訊單位"
+    ]
+  },
+  "motifs": {
+    "roundedCard": {
+      "desc": "以圓角卡片拆分資訊，卡片之間保持固定間距",
+      "appliesTo": "流程、分類、比較與數據頁"
+    },
+    "sequenceNumber": {
+      "desc": "使用 01、02、03 或大型數字建立閱讀順序",
+      "appliesTo": "所有序列與流程"
+    },
+    "metricBlock": {
+      "desc": "用大數字搭配短標籤呈現成果、比例或關鍵指標",
+      "appliesTo": "數據與總結頁"
+    },
+    "organicShape": {
+      "desc": "少量圓形或不規則色塊作為卡片背景與導視",
+      "appliesTo": "封面與章節頁"
+    }
+  },
+  "layout": {
+    "grid": "不對稱圓角卡片網格",
+    "cardColumns": "2 至 4 欄，依資訊量調整",
+    "cardGap": "固定間距，不讓卡片互相黏連",
+    "readingOrder": "由編號、大小或位置明確指示閱讀順序",
+    "coverException": "封面可用大型卡片與少量模組，內頁維持網格"
+  },
+  "pageTemplates": {
+    "cover": { "background": "assets/test/test-teal-geo.png", "fullBleed": true, "titleRole": "coverTitle", "note": "用大型主卡片與少量摘要模組建立入口" },
+    "section": { "background": "assets/test/test-teal-geo.png", "fullBleed": true, "titleRole": "sectionTitle" },
+    "content-photo": { "background": "F3F7F5", "layout": "照片卡＋說明卡", "photo": "roundedCard" },
+    "content-list": { "background": "F3F7F5", "layout": "編號卡片網格", "badges": "sequenceNumber", "verticalCenter": true },
+    "conclusion": { "background": "F3F7F5", "layout": "三卡行動摘要＋一個 metricBlock", "note": "以卡片總結可執行的下一步" }
+  },
+  "renderNotes": [
+    "PNG 負責卡片背景、照片與圖表；卡片標題、數字與主要文字保留為 PPT 原生文字",
+    "卡片數量增加時先刪減文字，不要縮小到投影不可讀",
+    "每次呼叫 addImage/addShape 都建立新的選項物件，避免物件被轉 EMU 後重用"
+  ],
+  "doneChecklist": [
+    "每張卡只表達一個資訊單位",
+    "所有卡片圓角、間距與內距一致",
+    "閱讀順序可由編號、尺寸或位置判斷",
+    "沒有超過四欄或塞入過多小卡",
+    "重要數字與結論仍保留為原生文字"
+  ]
+}

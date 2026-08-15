@@ -1,0 +1,8 @@
+{
+  "id": "comic-editorial",
+  "label": "漫畫敘事",
+  "version": 1,
+  "bestFor": ["新手導入", "情境案例", "溝通", "服務流程"],
+  "promptRules": ["Use polished editorial comic illustration with clean ink lines, flat colors, and a single clear teaching situation.", "Keep recurring characters visually consistent; show at most two principal characters unless a group is essential.", "Use panels, speech bubbles, and motion marks only when they advance the lesson; reserve space for required Traditional Chinese text."],
+  "avoid": ["licensed characters", "manga pages full of tiny panels", "violent action", "photorealistic faces", "decorative English sound effects"]
+}

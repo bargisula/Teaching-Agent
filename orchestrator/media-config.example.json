@@ -1,0 +1,36 @@
+{
+  "enabled": true,
+  "mode": "teacher-student",
+  "language": "zh-TW",
+  "scriptApprovalRequired": true,
+  "voices": {
+    "teacher": {
+      "label": "女老師｜親切專業",
+      "provider": "configure-before-use",
+      "voiceId": "replace-with-tts-voice-id",
+      "speed": 0.95
+    },
+    "student": {
+      "label": "男學員｜自然好奇",
+      "provider": "configure-before-use",
+      "voiceId": "replace-with-tts-voice-id",
+      "speed": 1.0
+    }
+  },
+  "subtitle": {
+    "enabled": true,
+    "format": "both",
+    "burnIn": true,
+    "fontFamily": "Microsoft JhengHei",
+    "fontSize": 48,
+    "position": "bottom",
+    "outline": 3
+  },
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "format": "mp4",
+    "holdAfterSlideSeconds": 1
+  }
+}

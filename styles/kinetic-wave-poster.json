@@ -1,0 +1,79 @@
+{
+  "id": "kinetic-wave-poster",
+  "name": "動態筆觸大字海報風",
+  "version": "1.0",
+  "palette": {
+    "background": "F1F0E4",
+    "dominant": "1E2C45",
+    "dominantSoft": "D5D7C9",
+    "accent": "D76579",
+    "accentBudgetPerDeck": 3,
+    "ink": "1E2C45",
+    "muted": "6C6C68",
+    "rules": [
+      "色彩可依主題替換，保留一個深色標題色與一組動態筆觸色",
+      "背景保持乾淨，動態筆觸是唯一主要裝飾"
+    ]
+  },
+  "typography": {
+    "fontZh": "Microsoft JhengHei",
+    "fontLatin": "Arial Black",
+    "roles": {
+      "coverTitle": { "size": 42, "bold": true, "color": "ink" },
+      "sectionTitle": { "size": 44, "bold": true, "color": "ink" },
+      "pageTitle": { "size": 32, "bold": true, "color": "ink" },
+      "body": { "size": 14, "bold": false, "color": "muted" },
+      "emphasisKeyword": { "bold": true, "color": "accent" },
+      "caption": { "size": 9, "bold": false, "color": "muted" }
+    },
+    "rules": [
+      "主標題使用巨大英數或粗黑字，形成遠距離辨識",
+      "副標題極短，放在主標題下方或角落",
+      "內文不與主標題競爭"
+    ]
+  },
+  "motifs": {
+    "kineticBrush": {
+      "desc": "使用波浪、筆刷、速度線或流體形狀形成由下往上的動勢",
+      "appliesTo": "封面、章節頁與概念頁"
+    },
+    "distressedParticles": {
+      "desc": "在筆觸邊緣加入少量粒子、噴濺或粗糙紋理",
+      "appliesTo": "不可覆蓋核心文字"
+    },
+    "oversizedTitle": {
+      "desc": "使用一個佔據頁面上方的大型標題或單字",
+      "appliesTo": "所有主視覺海報頁"
+    },
+    "microCredit": {
+      "desc": "角落保留小型來源、章節、日期或活動資訊",
+      "appliesTo": "頁面底部或頂部"
+    }
+  },
+  "layout": {
+    "grid": "上方巨大標題＋下方斜向動態主視覺",
+    "titlePlacement": "top-left-or-top-center",
+    "motionDirection": "bottom-left-to-top-right",
+    "textDensity": "極低，主標題之外只留一至兩個資訊單位",
+    "cornerTreatment": "可使用圓角海報卡或不規則裁切"
+  },
+  "pageTemplates": {
+    "cover": { "background": "assets/test/test-warm-bokeh.png", "fullBleed": true, "titleRole": "coverTitle", "note": "主標題佔上方，動態筆觸由底部掃入" },
+    "section": { "background": "assets/test/test-warm-bokeh.png", "fullBleed": true, "titleRole": "sectionTitle" },
+    "content-photo": { "background": "F1F0E4", "layout": "大標題＋動態照片裁切", "photo": "kineticBrush" },
+    "content-list": { "background": "F1F0E4", "layout": "標題＋三段速度線條資訊", "decor": "distressedParticles" },
+    "conclusion": { "background": "F1F0E4", "layout": "大字行動句＋單一動態筆觸", "note": "保持低資訊密度" }
+  },
+  "renderNotes": [
+    "PNG 負責筆刷、波浪、粒子與紋理；標題與核心文字保留為 PPT 原生文字",
+    "動態圖形必須保留文字安全區，避免筆觸穿過標題",
+    "每次呼叫 addImage/addShape 都建立新的選項物件，避免物件被轉 EMU 後重用"
+  ],
+  "doneChecklist": [
+    "主標題是頁面第一個視覺焦點",
+    "動態筆觸有明確方向，不是隨機裝飾",
+    "粒子與紋理不影響文字辨識",
+    "每頁資訊單位不超過三個",
+    "角落資訊保持小而一致"
+  ]
+}

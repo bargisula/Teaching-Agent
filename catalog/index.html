@@ -1,0 +1,70 @@
+﻿<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>教材編輯室｜Teaching Agent</title>
+  <link rel="stylesheet" href="/catalog/styles.css?v=20260718-7">
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">TEACHING AGENT / MATERIALS DESK</p>
+        <h1>教材編輯室</h1>
+        <p class="intro">從上次停下的地方繼續，把每套課程的想法、版本與成果放在同一張桌上。</p>
+      </div>
+      <button class="primary-button" id="new-course" type="button">＋ 建立新教材</button>
+    </header>
+
+    <section class="recent-panel" aria-labelledby="recent-title">
+      <div>
+        <p class="eyebrow">CURRENT DESK</p>
+        <h2 id="recent-title">最近更新</h2>
+        <p id="recent-copy">載入教材資料中…</p>
+      </div>
+      <div class="desk-mark" aria-hidden="true"><span>v</span><strong>0.1</strong></div>
+    </section>
+
+    <section id="catalog-view">
+      <section class="toolbar" aria-label="教材搜尋與篩選">
+        <label class="search-box"><span>搜尋教材</span><input id="search" type="search" placeholder="名稱、標籤、受眾…"></label>
+        <label class="filter-box"><span>狀態</span><select id="status-filter"><option value="all">全部狀態</option><option value="draft">草稿</option><option value="review">審查中</option><option value="approved">已核准</option><option value="published">已發布</option></select></label>
+        <p class="result-count" id="result-count"></p>
+      </section>
+      <section class="course-list" id="course-list" aria-live="polite"></section>
+      <section class="empty-state" id="empty-state" hidden><p class="eyebrow">NO MATCHES</p><h2>這張桌上還沒有符合的教材</h2><p>換個關鍵字或清除篩選，看看其他課程版本。</p></section>
+    </section>
+
+    <section id="detail-view" class="detail-view" hidden>
+      <button class="back-link" id="back-to-catalog" type="button">← 回到教材庫</button>
+      <div id="detail-content"></div>
+    </section>
+  </main>
+
+  <dialog id="course-dialog" class="course-dialog">
+    <form method="dialog" id="course-form">
+      <div class="dialog-head"><p class="eyebrow">NEW MATERIAL</p><button class="icon-button" value="cancel" aria-label="關閉">×</button></div>
+      <h2>建立一套新教材</h2>
+      <p class="dialog-copy">先建立課程工作區，之後再交給教材規劃 Agent 拆解。</p>
+      <div id="course-fields">
+        <label>教材名稱<input required name="title" placeholder="例如：用 AI 整理工作流程"></label>
+        <label>一句描述<textarea required name="description" rows="3" placeholder="這套教材要幫誰解決什麼問題？"></textarea></label>
+        <label>教學對象<input required name="audience" placeholder="例如：第一次使用 AI 的行政人員"></label>
+        <label>標籤<input name="tags" placeholder="用逗號分隔，例如：AI, 入門, 實作"></label>
+        <div class="dialog-actions"><button class="secondary-button" value="cancel">取消</button><button class="primary-button" value="default">下一步：確認需求</button></div>
+      </div>
+      <section id="course-confirmation" class="course-confirmation" hidden>
+        <p class="eyebrow">REVIEW BEFORE RUN</p>
+        <h3>先確認這是你要做的教材</h3>
+        <p class="confirmation-copy">主控 Agent 不會因為收到輸入就直接執行。確認後才會建立工作區，並依序交給教材規劃、視覺導演與品質檢查。</p>
+        <dl id="confirmation-summary"></dl>
+        <div class="dialog-actions"><button class="secondary-button" id="edit-course" type="button">返回修改</button><button class="primary-button" id="confirm-course" type="button">確認，啟動主控器</button></div>
+      </section>
+    </form>
+  </dialog>
+  <script src="/catalog/app.js?v=20260718-7"></script>
+</body>
+</html>
+
+

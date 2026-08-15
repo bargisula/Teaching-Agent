@@ -1,0 +1,24 @@
+{
+  "enabled": true,
+  "mode": "single-female",
+  "language": "zh-TW",
+  "scriptApprovalRequired": true,
+  "voices": {
+    "narrator_female": {
+      "label": "OpenAI｜自然女聲教學",
+      "provider": "openai",
+      "voiceId": "coral",
+      "speed": 1.0
+    }
+  },
+  "subtitle": {
+    "enabled": true,
+    "format": "both",
+    "burnIn": true,
+    "fontFamily": "Microsoft JhengHei",
+    "fontSize": 48,
+    "position": "bottom",
+    "outline": 3
+  },
+  "video": { "width": 1920, "height": 1080, "fps": 30, "format": "mp4", "holdAfterSlideSeconds": 1 }
+}

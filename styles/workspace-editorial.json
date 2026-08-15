@@ -1,0 +1,78 @@
+{
+  "id": "workspace-editorial",
+  "name": "工作桌情境展示風",
+  "version": "1.0",
+  "palette": {
+    "background": "F2F1ED",
+    "dominant": "242424",
+    "dominantSoft": "D9D5CD",
+    "accent": "E34B87",
+    "accentBudgetPerDeck": 3,
+    "ink": "1D1D1D",
+    "muted": "686868",
+    "rules": [
+      "以工作場景與作品圖片建立主敘事，強調色只作標籤或重點",
+      "保持背景簡潔，避免加入無功能的裝飾"
+    ]
+  },
+  "typography": {
+    "fontZh": "Microsoft JhengHei",
+    "fontLatin": "Arial",
+    "roles": {
+      "coverTitle": { "size": 38, "bold": true, "color": "ink" },
+      "sectionTitle": { "size": 40, "bold": true, "color": "ink" },
+      "pageTitle": { "size": 30, "bold": true, "color": "ink" },
+      "body": { "size": 15, "bold": false, "color": "muted" },
+      "emphasisKeyword": { "bold": true, "color": "dominant" },
+      "caption": { "size": 10, "bold": false, "color": "muted" }
+    },
+    "rules": [
+      "標題使用粗黑無襯線字，形成雜誌式入口",
+      "說明文字保持短句，避免大段內文"
+    ]
+  },
+  "motifs": {
+    "workspaceStillLife": {
+      "desc": "使用桌面、電腦、紙張、筆、尺或工具建立工作情境",
+      "appliesTo": "封面與工具介紹頁"
+    },
+    "deviceMockup": {
+      "desc": "以螢幕、紙張或卡片展示操作結果與作品",
+      "appliesTo": "操作與成果頁"
+    },
+    "objectScatter": {
+      "desc": "少量物件平拍或斜向散落，形成編輯工作感",
+      "appliesTo": "主視覺區，不得遮蔽標題"
+    },
+    "editorialLabel": {
+      "desc": "使用小型章節標籤、頁碼與細線建立雜誌結構",
+      "appliesTo": "所有頁面"
+    }
+  },
+  "layout": {
+    "grid": "上方標題＋中央作品展示＋下方短說明",
+    "titlePlacement": "top-left-or-center",
+    "visualDominance": "主作品或裝置佔頁面 45% 以上",
+    "objectTreatment": "平拍、局部裁切、卡片疊放",
+    "coverException": "封面允許中央裝置或作品作為視覺焦點"
+  },
+  "pageTemplates": {
+    "cover": { "background": "assets/test/test-teal-geo.png", "fullBleed": true, "titleRole": "coverTitle", "note": "標題置於上方，中央展示作品或裝置" },
+    "section": { "background": "assets/test/test-teal-geo.png", "fullBleed": true, "titleRole": "sectionTitle" },
+    "content-photo": { "background": "F2F1ED", "layout": "標題＋工作情境圖＋說明", "photo": "deviceMockup" },
+    "content-list": { "background": "F2F1ED", "layout": "作品展示＋三項操作提示", "decor": "editorialLabel" },
+    "conclusion": { "background": "F2F1ED", "layout": "成果展示＋下一步", "note": "保留工作桌或裝置的完成感" }
+  },
+  "renderNotes": [
+    "PNG 負責工作桌照片、裝置 mockup 與背景物件；所有教學文字保留為 PPT 原生文字",
+    "展示畫面要裁切到關鍵區域，不要讓裝飾物壓過操作重點",
+    "每次呼叫 addImage/addShape 都建立新的選項物件，避免物件被轉 EMU 後重用"
+  ],
+  "doneChecklist": [
+    "每頁都有一個被展示的作品、畫面或工具",
+    "標題在第一眼可讀，工作物件不搶標題",
+    "圖片具備清楚的操作或成果意義",
+    "小標、頁碼與細線保持一致",
+    "沒有把工作桌元素當成無意義裝飾"
+  ]
+}

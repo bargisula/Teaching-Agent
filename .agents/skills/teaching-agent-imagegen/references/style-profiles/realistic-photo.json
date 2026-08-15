@@ -1,0 +1,8 @@
+{
+  "id": "realistic-photo",
+  "label": "寫實情境",
+  "version": 1,
+  "bestFor": ["職場情境", "領導力", "安全訓練", "品牌與服務"],
+  "promptRules": ["Use tasteful documentary-style workplace photography with natural lighting and credible contemporary environments.", "Depict respectful, diverse adults and a single observable action supporting the teaching point.", "Reserve uncluttered negative space for title and required Traditional Chinese text; use editorial color grading rather than a stock-photo collage."],
+  "avoid": ["celebrity likenesses", "recognizable logos", "uncanny faces", "watermarks", "posed handshake stock-photo clichés"]
+}

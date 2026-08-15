@@ -1,0 +1,24 @@
+.env
+orchestrator/.env
+*.env
+!*.env.example
+
+node_modules/
+library/
+tmp/
+tmp-*/
+*.log
+
+.browser-cache/
+.claude/
+
+# process/acceptance artifacts (internal, not needed to use the project)
+REPORT-*.md
+gpt-content-steward/
+work/
+styles/previews/chrome-test/
+styles/previews/*-test-*
+styles/previews/codex-mixed-style-spec.json
+deliverables/
+agent-project-structure.png
+ecommerce-order-flow.png

@@ -1,0 +1,79 @@
+{
+  "id": "botanical-contents-card",
+  "name": "植物水彩目錄卡風",
+  "version": "1.0",
+  "palette": {
+    "background": "F7F7F0",
+    "dominant": "477A65",
+    "dominantSoft": "DDEBDD",
+    "accent": "C98D63",
+    "accentBudgetPerDeck": 3,
+    "ink": "263E38",
+    "muted": "718078",
+    "rules": [
+      "色彩可依教材品牌替換，維持紙張底、植物輔助色與文字色三層",
+      "裝飾植物只作邊角框景，不可遮蔽目錄或正文"
+    ]
+  },
+  "typography": {
+    "fontZh": "Microsoft JhengHei",
+    "fontLatin": "Georgia",
+    "roles": {
+      "coverTitle": { "size": 38, "bold": true, "color": "ink" },
+      "sectionTitle": { "size": 40, "bold": true, "color": "ink" },
+      "pageTitle": { "size": 28, "bold": true, "color": "ink" },
+      "body": { "size": 14, "bold": false, "color": "muted" },
+      "emphasisKeyword": { "bold": true, "color": "dominant" },
+      "caption": { "size": 9, "bold": false, "color": "muted" }
+    },
+    "rules": [
+      "標題與章節名稱居中或沿中央軸線排列",
+      "目錄項目使用清楚的編號、短標題與細文字說明",
+      "避免使用過重的粗體與過多框線"
+    ]
+  },
+  "motifs": {
+    "watercolorBotanical": {
+      "desc": "以葉片、花朵、枝條或手繪植物作為四角框景",
+      "appliesTo": "封面、目錄與章節頁"
+    },
+    "softPaperCard": {
+      "desc": "使用淺色紙張卡片、圓角與柔和留白形成手冊感",
+      "appliesTo": "整份簡報"
+    },
+    "chapterPill": {
+      "desc": "章節編號搭配短色條或圓角標籤，形成目錄閱讀軸",
+      "appliesTo": "目錄、流程與章節頁"
+    },
+    "centerAxis": {
+      "desc": "標題、目錄與說明沿中央或單一垂直軸對齊",
+      "appliesTo": "資訊型頁面"
+    }
+  },
+  "layout": {
+    "grid": "中央目錄軸＋四角植物框景",
+    "titlePlacement": "center",
+    "chapterList": "左側編號／中央標題／右側短說明",
+    "whitespace": "四周保留大量紙張留白",
+    "cornerTreatment": "圓角白卡或紙張感外框"
+  },
+  "pageTemplates": {
+    "cover": { "background": "assets/test/test-teal-geo.png", "fullBleed": true, "titleRole": "coverTitle", "note": "中央標題，四角以植物素材形成框景" },
+    "section": { "background": "assets/test/test-teal-geo.png", "fullBleed": true, "titleRole": "sectionTitle" },
+    "content-photo": { "background": "F7F7F0", "layout": "照片卡＋植物角落裝飾", "photo": "softPaperCard" },
+    "content-list": { "background": "F7F7F0", "layout": "章節目錄軸＋chapter pills", "decor": "chapterPill" },
+    "conclusion": { "background": "F7F7F0", "layout": "中央結論＋四角植物框景", "note": "保持手冊式留白" }
+  },
+  "renderNotes": [
+    "PNG 負責植物水彩、紙張紋理與角落裝飾；章節標題與目錄文字保留為 PPT 原生文字",
+    "植物素材須放在邊角安全區，不可壓住內容文字",
+    "每次呼叫 addImage/addShape 都建立新的選項物件，避免物件被轉 EMU 後重用"
+  ],
+  "doneChecklist": [
+    "中央閱讀軸清楚可追蹤",
+    "植物只作框景，不搶過章節文字",
+    "每個目錄項目都有編號與短標題",
+    "卡片圓角、留白與間距一致",
+    "沒有把頁面塞成密集表格"
+  ]
+}

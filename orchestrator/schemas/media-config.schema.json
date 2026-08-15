@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Teaching Agent Media Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["enabled", "mode", "language", "voices", "subtitle", "video"],
+  "properties": {
+    "enabled": { "type": "boolean" },
+    "mode": {
+      "type": "string",
+      "enum": ["single-female", "single-male", "dialogue", "teacher-student"]
+    },
+    "language": {
+      "type": "string",
+      "enum": ["zh-TW", "zh-CN", "en-US", "ja-JP"]
+    },
+    "scriptApprovalRequired": { "type": "boolean", "default": true },
+    "voices": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "provider", "voiceId", "speed"],
+        "properties": {
+          "label": { "type": "string", "minLength": 1 },
+          "provider": { "type": "string", "minLength": 1 },
+          "voiceId": { "type": "string", "minLength": 1 },
+          "speed": { "type": "number", "exclusiveMinimum": 0.5, "maximum": 2.0 }
+        }
+      },
+      "minProperties": 1
+    },
+    "subtitle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "format", "burnIn", "fontFamily", "fontSize"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "format": { "type": "string", "enum": ["srt", "ass", "both"] },
+        "burnIn": { "type": "boolean" },
+        "fontFamily": { "type": "string", "minLength": 1 },
+        "fontSize": { "type": "integer", "minimum": 18, "maximum": 96 },
+        "position": { "type": "string", "enum": ["bottom", "middle", "top"], "default": "bottom" },
+        "outline": { "type": "integer", "minimum": 0, "maximum": 8, "default": 3 }
+      }
+    },
+    "video": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["width", "height", "fps", "format"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 640 },
+        "height": { "type": "integer", "minimum": 360 },
+        "fps": { "type": "integer", "enum": [24, 25, 30, 60] },
+        "format": { "type": "string", "enum": ["mp4"] },
+        "holdAfterSlideSeconds": { "type": "number", "minimum": 0, "maximum": 10, "default": 1 }
+      }
+    }
+  }
+}

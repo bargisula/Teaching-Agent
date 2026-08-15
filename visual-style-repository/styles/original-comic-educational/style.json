@@ -1,0 +1,19 @@
+{
+  "id": "original-comic-educational",
+  "name": "原創教學漫畫",
+  "best_for": [
+    "AI入門",
+    "職場案例",
+    "工具教學",
+    "流程說明"
+  ],
+  "medium": "original East-Asian comic illustration",
+  "linework": "清晰墨線、表情誇張",
+  "color": "米白底、深藍與橘色點綴",
+  "composition": "三格分鏡、單一敘事節奏",
+  "avoid": [
+    "特定作者或作品模仿",
+    "品牌角色",
+    "過小文字"
+  ]
+}
